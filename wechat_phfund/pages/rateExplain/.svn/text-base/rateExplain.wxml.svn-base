@@ -1,0 +1,189 @@
+<view style="width:100%;height:100%;">
+<view class="lineBlock"></view>
+  <view class="lineBlock"></view>
+  <view class="first">
+    <view class="buyRate">
+      <view>
+        <icon class="icon"></icon>
+        <text class="font-17 text-more font-weight">申购费率</text>
+      </view>
+    </view>
+    <view class="lineBottom"></view>
+    <view class="buyRate">
+      <view class="width-65 text-left">
+        <text class="font-15 color-3" style="margin-left:12px;">金额</text>
+      </view>
+      <view class="lineCenter"></view>
+      <view class="width-35 text-center">
+        <text class="font-15 color-3">优惠率</text>
+      </view>
+    </view>
+    <view class="lineBottom"></view>
+    <view wx:if="{{fundTypeNum == '04'}}">
+      <view class="subscription">
+        <view class='width-65'>
+          <text class="font-13 color-9" style="margin-left:12px;">0≤申购金额</text>
+        </view>
+        <view class="line"></view>
+        <view class='width-35 text-center'>
+          <text class="font-13 FF6000">每笔0元</text>
+        </view>
+
+      </view>
+    </view>
+    <view wx:else>
+      <view wx:for="{{buyRateList}}" wx:key="index">
+        <view class="subscription">
+          <view class='width-65' wx:if="{{index!=buyRateList.length-1}}">
+            <text class="font-13 color-9" style="margin-left:12px;">{{item.amountMin}}≤申购金额＜{{item.amountMax}}</text>
+          </view>
+          <view class='width-65' wx:else>
+            <text class="font-13 color-9" style="margin-left:12px;">{{item.amountMin}}≤申购金额</text>
+          </view>
+          <view class="line"></view>
+          <view class='width-35 text-center' wx:if="{{item.fee_type == '0'}}">
+            <text class="font-13 color-9 text-decoration">{{item.rateStandards}}%</text>
+            <text class="font-13 FF6000">{{item.share_class}}%</text>
+          </view>
+          <view class='width-35 text-center' wx:if="{{item.fee_type == '1'}}">
+            <text class="font-13 FF6000">每笔{{item.fee_const}}元</text>
+          </view>
+
+        </view>
+        <view class="lineBottom"></view>
+      </view>
+    </view>
+    <view class="lineBottom"></view>
+    <view class="aboutTips">
+      <view class="caluate">
+        <view>
+          <text class="font-13 color-9">申购计算：</text>
+        </view>
+        <view>
+          <text class="font-13 color-9">净申购金额=申购金额/(1+申购费率)</text>
+        </view>
+        <view>
+          <text class="font-13 color-9">净申购金额=申购金额/(1+申购费率)</text>
+        </view>
+        <view>
+          <text class="font-13 color-9">净申购金额=申购金额/(1+申购费率)</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="lineBlock"></view>
+  <view class="second">
+    <view class="buyRate">
+      <view>
+        <icon class="icon"></icon>
+        <text class="font-17 text-more font-weight">赎回费率</text>
+      </view>
+    </view>
+    <view class="lineBottom"></view>
+    <view class="buyRate">
+      <view class="width-65 text-left">
+        <text class="font-15 color-3" style="margin-left:12px;">持有期限</text>
+      </view>
+      <view class="lineCenter"></view>
+      <view class="width-35 text-center">
+        <text class="font-15 color-3">优惠率</text>
+      </view>
+    </view>
+    <view class="lineBottom"></view>
+    <view wx:if="{{fundTypeNum == '04'}}">
+      <view class="subscription">
+        <view class='width-65'>
+          <text class="font-13 color-9" style="margin-left:10pt;">0天≤持有期限</text>
+        </view>
+        <view class="line"></view>
+        <view class='width-35 text-center'>
+          <text class="font-13 FF6000">每笔0元</text>
+        </view>
+
+      </view>
+    </view>
+    <view wx:else>
+      <view wx:for="{{sellRateList}}">
+        <view class="subscription">
+          <view class='width-65' wx:if="{{item.holddaysMin*1<item.holddaysMax*1}}">
+            <text class="font-13 color-9" style="margin-left:10pt;">{{item.holddaysMin}}天≤持有期限＜{{item.holddaysMax}}天</text>
+          </view>
+          <view class='width-65' wx:if="{{item.holddaysMin*1>item.holddaysMax*1}}">
+            <text class="font-13 color-9" style="margin-left:10pt;">{{item.holddaysMin}}天≤持有期限</text>
+          </view>
+          <view class="line"></view>
+          <view class='width-35 text-center' wx:if="{{item.fee_type == '0'}}">
+            <text class="font-13 FF6000">{{item.share_class}}%</text>
+          </view>
+          <view class='width-35 text-center' wx:if="{{item.fee_type == '1'}}">
+            <text class="font-13 FF6000">每笔{{item.fee_const}}元</text>
+          </view>
+        </view>
+        <view class="lineBottom"></view>
+      </view>
+    </view>
+
+    <view class="lineBottom"></view>
+    <view class="aboutTips1">
+      <view class="caluate1">
+        <text class="font-13 color-9">费率的高低根据基金持有时间长短来决定，基金卖出时一般按照先进先出原则，实际费用收取以基金公司计算为准。</text>
+      </view>
+    </view>
+    <view class="aboutTips2">
+      <view class="caluate">
+        <view>
+          <text class="font-13 color-9">赎回总额=赎回数量*T日基金份额净值</text>
+        </view>
+        <view>
+          <text class="font-13 color-9">赎回费用=赎回总额*赎回费率</text>
+        </view>
+        <view>
+          <text class="font-13 color-9">赎回金额=赎回总额-赎回费用</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="lineBlock"></view>
+  <view class='third'>
+    <view class="buyRate">
+      <view>
+        <icon class="icon"></icon>
+        <text class="font-17 text-more font-weight">申购补差费率</text>
+      </view>
+    </view>
+    <view class="lineBottom"></view>
+    <view class="aboutTips2">
+      <view class="caluate1">
+        <text class="font-13 color-9">申购费补差（外扣）=转出净额*转入基金的申购费率/（1+转入基金申购费率）-转出净额*转出基金申购费率/（1+转出基金申购费率）</text>
+      </view>
+    </view>
+    <view class="lineBottom"></view>
+    <view class="second">
+      <view class='tips1'>
+        <text class="font-15 width-70 color-3 font-weight" style="margin-left:10pt;">管理费率(年)</text>
+        <text class="font-15 FF6000 width-30 marginRight text-center">{{managementRate}}%</text>
+      </view>
+      <view class="lineBottom"></view>
+    </view>
+    <view class="second">
+      <view class='tips1'>
+        <text class="font-15 width-70 color-3 font-weight" style="margin-left:10pt;">托管费率(年)</text>
+        <text class="font-15 FF6000 width-30 marginRight text-center">{{managedRate}}%</text>
+      </view>
+      <view class="lineBottom"></view>
+    </view>
+    <view class="second">
+      <view class='tips1'>
+        <text class="font-15 width-70 color-3 font-weight" style="margin-left:10pt;">销售服务费率(年)</text>
+        <text class="font-15 FF6000 width-30 marginRight text-center">{{serviceRate}}%</text>
+      </view>
+      <view class="lineBottom"></view>
+    </view>
+  </view>
+  <view class="lineBottom"></view>
+
+</view>
+
+<view>
+  <loading wx:if="{{showLoading}}">加载中</loading>
+</view>

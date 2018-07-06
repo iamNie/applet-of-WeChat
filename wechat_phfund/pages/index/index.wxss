@@ -1,0 +1,155 @@
+/**index.wxss**/
+
+.userinfo {
+  /* height: 213px; */
+  background-size: 100% 100%;
+  background-color: #fff;
+}
+
+.slide-image {
+  width: 100%;
+}
+
+.first {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  vertical-align: middle;
+}
+
+.leftContent {
+  width: 20%;
+  text-align: center;
+}
+
+.centerContent {
+  width: 70%;
+  display: inline-block;
+}
+
+.rightIcon {
+  width: 15%;
+  display: inline-block;
+}
+
+.left-content {
+  width: 100px;
+}
+
+.icon {
+  width: 3.3pt;
+  height: 11pt;
+  background-color: #c83127;
+  margin-left: 10px;
+}
+
+.image {
+  width: 20px;
+  height: 20px;
+  margin-left: 10px;
+}
+
+.icon-image {
+  width: 20px;
+  height: 20px;
+}
+
+.text-more {
+  width: 90%;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.totalMoney {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  background-color: #fff;
+}
+
+.width-50 {
+  width: 49.5%;
+  text-align: center;
+}
+
+.middle {
+  width: 33.3%;
+  text-align: center;
+}
+
+.lineBottom {
+  height: 1px;
+  background-color: #f5f5f5;
+}
+
+.margin-5 {
+  margin: 0 5px;
+  display: flex;
+  align-items: center;
+  height: 45px;
+  flex-direction: row;
+}
+
+.icon1 {
+  width: 10px;
+  height: 20px;
+  float: right;
+  margin-right: 5px;
+}
+
+.aboutMoney {
+  width: 35%;
+  text-align: left;
+  margin-left: 10px;
+}
+
+.fund {
+  width: 60%;
+}
+
+.second {
+  margin: 5px;
+  display: flex;
+  align-items: center;
+  height: 59px;
+  flex-direction: row;
+}
+
+.viewMore {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  color: #f07100;
+  flex-direction: row;
+  font-size: 13px;
+}
+
+.drawer-box {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  /* background:rgba(0, 0, 0, 0.4); */
+  overflow: hidden;
+}
+
+.t_w1 {
+  position: relative;
+  width: 30%;
+  height: 100px;
+  text-align: center;
+  top: 25%;
+  background: rgba(0, 0, 0, 0.4);
+  left: 35%;
+  border-radius: 10px;
+}
+
+.icon2 {
+  width: 35px;
+  height: 25px;
+  margin-top: 20px;
+}

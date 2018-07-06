@@ -1,0 +1,79 @@
+<!--pages/sellAssets/sellAssets.wxml-->
+<view style="height:100%;width:100%;" hidden="{{showZichan}}">
+  <view class="totalMoney">
+    <view class="total">
+      <text class="font-13">{{totalzc}}({{unit}})</text>
+      <image hidden="{{showImg}}" src="../../images/changeDown.png" class="downImg" bindtap='switch'></image>
+      <dd class="{{openPicker ? 'slidown' : 'slidup'}} subTab">
+        <ul>
+          <li class="{{indexTab==156 ? 'active' : ''}}" data-index="156" bindtap="changeType">人民币代销资产(元)</li>
+          <li class='centerLine'></li>
+          <li class="{{indexTab==840 ? 'active' : ''}}" data-index="840" bindtap="changeType">美元代销资产(美元)</li>
+        </ul>
+      </dd>
+    </view>
+    <view class="money">
+      <text class="font-35">{{sumamt}}</text>
+    </view>
+  </view>
+  <view class="lineBlock"></view>
+  <view>
+    <view wx:for="{{sellsAsset}}" wx:key="{{index}}">
+      <view>
+        <view class='margin-5'>
+          <icon class="icon"></icon>
+          <text class="font-15 color-3 font-weight">{{item.distributorName}}：{{item.totalPrice}}{{unit}}</text>
+        </view>
+        <view class="lineBottom"></view>
+      </view>
+      <view wx:for="{{item.fundShareList}}" wx:key="{{index}}">
+        <view class="wallet">
+          <view class='width-75' style="padding-left:15px;">
+            <view>
+              <text class="font-13 color-3">{{item.fundName}}</text>
+            </view>
+            <view wx:if="{{item.totalPrice == 0}}">
+              <text class="font-13 color-9">市值：0.00</text>
+            </view>
+            <view wx:else>
+              <text class="font-13 color-9">市值：{{item.totalPrice}}</text>
+            </view>
+          </view>
+          <view class='width-25 text-center'>
+            <view>
+              <text class="font-13 color-9">持有份额</text>
+            </view>
+            <view>
+              <text class="font-13" style="color:#000">{{item.totalShare}}</text>
+            </view>
+          </view>
+        </view>
+        <view class="lineBottom"></view>
+      </view>
+    </view>
+  </view>
+  <view class="moreFund" bindtap='viewFundDetail' hidden="{{showMore}}">
+    <text class="font-12 color-6">查看基金行情>></text>
+  </view>
+  <view class="lineBlock"></view>
+  <view>
+    <image src="../../images/ad@2x.png" class="ads"></image>
+  </view>
+</view>
+<view>
+  <loading wx:if="{{showLoading}}">加载中</loading>
+</view>
+
+<view animation="{{animationData}}" class="drawer_box" hidden="{{flag}}">
+  <!--drawer content-->
+  <view class="t_w">
+    <view class="drawer_title">提示</view>
+    <view class="drawer_content">
+      <view>
+        <label class="font-13 color-9">{{retMsg}}</label>
+      </view>
+    </view>
+    <view class="lineBottom"></view>
+    <view class="btn_ok" bindtap="powerDrawer" data-statu="close">确定</view>
+  </view>
+</view>

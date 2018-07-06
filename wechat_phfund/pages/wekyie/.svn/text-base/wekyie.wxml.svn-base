@@ -1,0 +1,35 @@
+<!--pages/wekyie/wekyie.wxml-->
+<view style="height:100%;width:100%">
+  <view class="head">
+    <view class="a">
+      <text class="font-36 C63126 font-weight">{{list[0].wekyie}}%</text>
+    </view>
+    <view>
+      <text class="font-12 color-9">七日年化收益率（%）</text>
+    </view>
+  </view>
+  <view class="lineBlock"></view>
+  <scroll-view scroll-top="{{scrollTop}}" scroll-y="true" style="height:{{scrollHeight}}px;" bindscrolltolower="bindDownLoad" bindscroll="scroll">
+    <block class="content">
+      <view wx:for="{{list}}" wx:key="{{index}}" style="background-color:#f5f5f5;">
+        <view class="al">
+          <view class="milrev" style="width:{{item.width}}%; background-color:{{item.bgcolor}}">
+            <view class="width-75">
+              <text class="font-12 color-f" style="margin-left:5pt;">{{item.dateee}}</text>
+            </view>
+            <view class="width-25 mil-right">
+              <text class="font-12 color-f">{{item.wekyie}}%</text>
+
+            </view>
+          </view>
+        </view>
+        <view class="lineBlock"></view>
+      </view>
+    </block>
+  </scroll-view>
+  <view class="body-view">
+    <loading hidden="{{hidden}}" bindchange="loadingChange">
+      加载中...
+    </loading>
+  </view>
+</view>

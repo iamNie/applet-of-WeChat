@@ -1,0 +1,89 @@
+<view style="width:100%;height:100%;">
+<view class="lineBlock"></view>
+<view class="lineBlock"></view>
+  <view class="swiper-tab">
+    <view class="swiper-tab-list {{currentTab==01 ? 'on' : ''}}" data-current="01" bindtap="swichNav">股票型</view>
+    <view class="swiper-tab-list {{currentTab==03 ? 'on' : ''}}" data-current="03" bindtap="swichNav">混合型</view>
+    <view class="swiper-tab-list {{currentTab==09 ? 'on' : ''}}" data-current="09" bindtap="swichNav">指数型</view>
+    <view class="swiper-tab-list {{currentTab==02 ? 'on' : ''}}" data-current="02" bindtap="swichNav">债券型</view>
+    <view class="swiper-tab-list {{currentTab==04 ? 'on' : ''}}" data-current="04" bindtap="swichNav">货币型</view>
+    <view class="swiper-tab-list {{currentTab==05 ? 'on' : ''}}" data-current="05" bindtap="swichNav">QDII</view>
+  </view>
+  <view class="lineBlock"></view>
+  <swiper class="swiper-box" duration="300" style="height:{{winHeight}}px">
+    <!-- 股票型 -->
+    <swiper-item>
+      <view class="fundContent">
+        <view class="fundTtile">
+          <view class="width-50">
+            <text class="font-13 left-20">基金名称</text>
+          </view>
+          <view class="line1"></view>
+          <view class="width-25 text-center" wx:if="{{fundType!='04'}}">
+            <text class="font-13">单位净值</text>
+          </view>
+          <view class="width-25 text-center" wx:if="{{fundType=='04'}}">
+            <text class="font-13">万份收益</text>
+          </view>
+          <view class="line1"></view>
+          <view class="width-25 text-center right-view" bindtap='selectMore'>
+            <text class="font-13" style="margin-left:14pt">{{changeSortType}}</text>
+            <image src="{{changeImg ? '../../images/xxjt2@2x.png':'../../images/xxjt@2x.png'}}" class="image"></image>
+            <dd class="{{openPicker ? 'slidown' : 'slidup'}} subTab">
+              <ul>
+                <li wx:if="{{fundType=='04'}}" data-type="9" class="{{indexTab==9 ? 'active' : ''}}" data-index="9" bindtap="switchSortType">七日年化</li>
+                <li wx:if="{{fundType!='04'}}" data-type="1" class="{{indexTab==1 ? 'active' : ''}}" data-index="1" bindtap="switchSortType">日涨幅</li>
+                <li data-type="3" class="{{indexTab==3 ? 'active' : ''}}" data-index="3" bindtap="switchSortType">近一月</li>
+                <li data-type="4" class="{{indexTab==4 ? 'active' : ''}}" data-index="4" bindtap="switchSortType">近三月</li>
+                <li data-type="5" class="{{indexTab==5 ? 'active' : ''}}" data-index="5" bindtap="switchSortType">近六月</li>
+                <li data-type="6" class="{{indexTab==6 ? 'active' : ''}}" data-index="6" bindtap="switchSortType">近一年</li>
+              </ul>
+            </dd>
+
+          </view>
+        </view>
+        <view class="lineBottom"></view>
+        <!--基金列表-->
+        <view>
+          <view wx:for="{{fundData}}" wx:key="{{index}}">
+            <view class="fundDetail" data-code="{{item.fundCode}}" bindtap='goToDetails'>
+              <view class="width-50">
+                <view>
+                  <text class="font-13 color-3 left-20 font-weight">{{item.fundName}}</text>
+                </view>
+                <view>
+                  <text class="font-12 color-9 left-20">{{item.fundCode}}</text>
+                </view>
+              </view>
+              <view class="line"></view>
+              <view class="width-25  text-center">
+                <view wx:if="{{fundType!='04'}}">
+                  <text class="font-13 color-3">{{item.nav}}</text>
+                </view>
+                <view wx:if="{{fundType=='04'}}">
+                  <text class="font-13 color-3">{{item.fundIncome}}</text>
+                </view>
+                <view>
+                  <text class="font-10 color-9">{{item.changeDate}}</text>
+                </view>
+              </view>
+              <view class="line"></view>
+              <view class="width-25 text-center" wx:if="{{item.state !='1'}}">
+                <text class="font-13 C83126" wx:if="{{item.yield>0}}">+{{item.yield}}%</text>
+                <text class="font-13 color-2DA66E" wx:elif="{{item.yield<0}}">{{item.yield}}%</text>
+                <text class="font-13 color-9" wx:else>0.00</text>
+              </view>
+              <view class="width-25 text-center" wx:if="{{item.state == '1'}}">
+                <button class="button">认购中</button>
+              </view>
+            </view>
+            <view class="lineBottom"></view>
+          </view>
+        </view>
+      </view>
+    </swiper-item>
+  </swiper>
+</view>
+<view>
+  <loading wx:if="{{showLoading}}">加载中</loading>
+</view>

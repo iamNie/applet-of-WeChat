@@ -1,0 +1,42 @@
+<view style="height:100%;width:100%">
+  <view class="title text-center">
+    <image src="../../images/03@2x.png" class="titleImg"></image>
+  </view>
+  <view class="itemView">
+    <view class="selectTips">
+      <text class="font-14 color-9">请选出您代销鹏华基金产品时的渠道（5选1）</text>
+    </view>
+  </view>
+  <view class="lineBottom"></view>
+  <view wx:for="{{ecnoInfo}}">
+    <view class="fundList" bindtap='selectEnco' data-ecno='{{item.ecnoNo}}'>
+      <view class="width-80 fundHeight" style="margin-left:20px;">
+        <text class="font-14 {{current== item.ecnoNo ? 'on' : ''}}">{{item.ecnoName}}</text>
+      </view>
+      <view class="width-20 fundHeight1 text-center">
+        <image src="{{current == item.ecnoNo ?'../../images/g1@2x.png':'../../images/g2@2x.png'}}" class="icon"></image>
+      </view>
+    </view>
+    <view class="lineBottom"></view>
+  </view>
+
+  <button class="login font-17" bindtap="next">下一步</button>
+
+</view>
+<view>
+  <loading wx:if="{{showLoading}}">加载中</loading>
+</view>
+
+<view animation="{{animationData}}" class="drawer_box" hidden="{{flag}}">
+  <!--drawer content-->
+  <view class="t_w">
+    <view class="drawer_title">提示</view>
+    <view class="drawer_content">
+      <view>
+        <label class="font-13 color-9">{{retMsg}}</label>
+      </view>
+    </view>
+    <view class="lineBottom"></view>
+    <view class="btn_ok" bindtap="powerDrawer" data-statu="close">确定</view>
+  </view>
+</view>

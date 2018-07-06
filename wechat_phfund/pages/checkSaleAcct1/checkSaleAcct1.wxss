@@ -1,0 +1,84 @@
+page {
+  background-color: #fff;
+}
+
+.title {
+  /* display: flex;
+  flex-direction: row;
+  align-items: center; */
+  background-color: #f5f5f5;
+  height: 72px;
+  /* position: relative; */
+}
+
+.titleImg {
+  width: 90%;
+  height: 38px;
+  margin-top: 18px;
+}
+
+.image {
+  width: 10px;
+  height: 15px;
+  margin-right: 10px;
+}
+
+.image2 {
+  width: 20px;
+  height: 12px;
+  margin-right: 10px;
+}
+
+.line {
+  height: 1px;
+  background-color: #c8c8c8;
+  width: 100%;
+}
+
+.itemView {
+  height: 40px;
+  background-color: #fff;
+}
+
+.selectTips {
+  width: 84%;
+  height: 40px;
+  line-height: 40px;
+  margin-left: 20px;
+}
+
+.fundList {
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+}
+
+.fundHeight {
+  height: 40px;
+  line-height: 40px;
+}
+
+.fundHeight2 {
+  height: 40px;
+  line-height: 42px;
+}
+
+.icon {
+  width: 18px;
+  height: 18px;
+  /* margin-left: 15px; */
+}
+
+.login {
+  width: 90%;
+  height: 45px;
+  background-color: #c83217;
+  color: #fff;
+  margin-top: 12px;
+  text-align: center;
+}
+.on{
+  color: #C83127;
+}

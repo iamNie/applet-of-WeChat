@@ -1,0 +1,104 @@
+<view style="width:100%;height:100%;">
+  <view class="topDetails">
+    <view class="margin">
+      <view class="aboutName">
+        <text class="font-18 font-weight">{{fundDeatil.prodna}}</text>
+        <text class="font-14 color-9" style="margin-left:5pt;">{{fundDeatil.fundCode}}</text>
+      </view>
+      <view class="fundTips">
+        <view class="fundType">
+          <text class="color-8 font-12">{{fundDeatil.fundType}}</text>
+        </view>
+        <view class="fundType">
+          <text class="color-8 font-12">{{fundDeatil.tsrState}}</text>
+        </view>
+        <view class="risk risk-1" wx:if="{{fundDeatil.acctRisk == '高风险'}}">
+          <text class="font-12 F64000">{{fundDeatil.acctRisk}}</text>
+        </view>
+        <view class="risk risk-2" wx:elif="{{fundDeatil.acctRisk == '中高风险'}}">
+          <text class="font-12 C63126">{{fundDeatil.acctRisk}}</text>
+        </view>
+         <view class="risk risk-3" wx:elif="{{fundDeatil.acctRisk == '低风险'}}">
+          <text class="font-12 color-3E72F6 ">{{fundDeatil.acctRisk}}</text>
+        </view>
+        <view class="risk risk-4" wx:else>
+          <text class="font-12 color-8 ">{{fundDeatil.acctRisk}}</text>
+        </view>
+      </view>
+      <view class="lineBottom"></view>
+      <view class="totalMoney" bindtap='goToNetWorth' data-num='{{fundDeatil.fundTypeNum}}' data-code="{{fundDeatil.fundCode}}">
+        <view class="width-45 text-center">
+          <view wx:if="{{fundDeatil.fundTypeNum =='04'}}">
+            <text class="font-12 font-color">七日年化收益率</text>
+          </view>
+          <view wx:else>
+            <text class="font-12 font-color">单位净值</text>
+          </view>
+          <view wx:if="{{fundDeatil.fundTypeNum =='04'}}">
+            <text class="font-24 font-weight C42526">{{fundDeatil.yield}}%</text>
+          </view>
+          <view wx:else>
+            <text class="font-24 color-3 font-weight">{{fundDeatil.nav}}</text>
+          </view>
+        </view>
+        <view class="width-45 text-center">
+          <view wx:if="{{fundDeatil.fundTypeNum =='04'}}">
+            <text class="font-12 font-color">万份收益</text>
+          </view>
+          <view wx:else>
+            <text class="font-12 font-color">日涨幅</text>
+          </view>
+          <view wx:if="{{fundDeatil.fundTypeNum =='04'}}">
+            <text class="font-24 font-red font-weight">{{fundDeatil.fundIncome }}</text>
+          </view>
+          <view wx:else>
+            <text class="font-24 font-red font-weight" wx:if="{{fundDeatil.avgreturn_day>0}}">+{{fundDeatil.avgreturn_day}}%</text>
+            <text class="font-24 color-2DA66E font-weight" wx:elif="{{fundDeatil.avgreturn_day<0}}">{{fundDeatil.avgreturn_day}}%</text>
+            <text class="font-24 color-2DA66E font-weight" wx:else>{{fundDeatil.avgreturn_day}}%</text>
+          </view>
+        </view>
+        <image src="../../images/jt03@2x.png" class="icon2"></image>
+      </view>
+      <view>
+        <text class="font-10 color-9">*以上数据更新于{{fundDeatil.changeDate}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="lineBlock"></view>
+  <view class="second">
+    <view class='tips' bindtap='viewListManager' data-managerno="{{fundManagerNo}}">
+      <image src="../../images/icon-jjjl@2x.png" class="image" />
+      <text class="font-15" style="margin-left:10pt;width:40%">基金经理</text>
+      <text class="font-15 color-9 text-right" style="width:38%">{{fundManagerNa}}</text>
+      <image src="../../images/jt03@2x.png" class="icon1"></image>
+    </view>
+    <view class="lineBottom"></view>
+  </view>
+  <view class="second" bindtap='viewFundSituation' data-code="{{fundDeatil.fundCode}}">
+    <view class='tips'>
+      <image src="../../images/icon-jjgk@2x.png" class="image" />
+      <text class="font-15" style="margin-left:10pt;width:78%">基金概况</text>
+      <image src="../../images/jt03@2x.png" class="icon1"></image>
+    </view>
+    <view class="lineBottom"></view>
+  </view>
+  <view class="second" bindtap='rateExplain' data-code="{{fundDeatil.fundCode}}" data-fundtype="{{fundDeatil.fundTypeNum}}">
+    <view class='tips'>
+      <image src="../../images/icn-flsm@2x.png" class="image" />
+      <text class="font-15" style="margin-left:10pt;width:78%">费率说明</text>
+      <image src="../../images/jt03@2x.png" class="icon1"></image>
+    </view>
+    <view class="lineBottom"></view>
+  </view>
+  <view class="second" bindtap='dividend' data-code="{{fundDeatil.fundCode}}">
+    <view class='tips'>
+      <image src="../../images/icon-fhqk@2x.png" class="image" />
+      <text class="font-15" style="margin-left:10pt;width:78%">分红情况</text>
+      <image src="../../images/jt03@2x.png" class="icon1"></image>
+    </view>
+    <view class="lineBottom"></view>
+  </view>
+</view>
+<view>
+  <loading wx:if="{{showLoading}}">加载中</loading>
+</view>

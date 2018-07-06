@@ -1,0 +1,9 @@
+<view style="height:100%;width:100%">
+  <view class="title text-center">
+    <image src="../../images/th@2x.png" class="titleImg"></image>
+  </view>
+  <view class="text-center">
+      <text class="font-17 color-3">抱歉，您的代销账号验证不成功，请重新尝试</text>
+  </view>
+  <button class="login font-17" bindtap="next">确认</button>
+</view>

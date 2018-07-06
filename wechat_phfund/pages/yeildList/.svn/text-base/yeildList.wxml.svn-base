@@ -1,0 +1,61 @@
+<!--pages/netWorthList/netWorthList.wxml-->
+<view style="width:100%;height:100%;">
+  <view class="lineBlock"></view>
+  <view class="lineBlock"></view>
+  <scroll-view>
+    <view class="allFund">
+      <view class="fundTtile">
+        <view class="width-33 text-center">
+          <image src="../../images/tim@3x.png" class="icon1"></image>
+          <text class="font-13">日期</text>
+        </view>
+        <view class="line1"></view>
+        <view class="width-33 text-center">
+          <image src="../../images/zc2@3x.png" class="icon1"></image>
+          <text class="font-13">万份收益</text>
+        </view>
+        <view class="line1"></view>
+        <view class="width-33 text-center">
+          <image src="../../images/gou@3x.png" class="icon1"></image>
+          <text class="font-13">七日年化</text>
+        </view>
+      </view>
+      <view class="lineBottom"></view>
+      <scroll-view scroll-y="true" style="height:{{winHeight}}px;">
+        <view wx:for="{{netWorthList}}" wx:key="{{index}}">
+          <view class="a">
+            <view class="width-33 text-center">
+              <text class="font-13">{{item.nav_date}}</text>
+            </view>
+            <view class="line1"></view>
+            <view class="width-33 text-center">
+              <text class="font-13">{{item.milrev}}</text>
+            </view>
+            <view class="line1"></view>
+            <view class="width-33 text-center">
+              <text class="font-13 C83126">+{{item.yield}}%</text>
+            </view>
+          </view>
+          <view class="lineBottom"></view>
+        </view>
+      </scroll-view>
+    </view>
+  </scroll-view>
+</view>
+<view>
+  <loading wx:if="{{showLoading}}">加载中</loading>
+</view>
+
+<view animation="{{animationData}}" class="drawer_box" hidden="{{flag}}">
+  <!--drawer content-->
+  <view class="t_w">
+    <view class="drawer_title">提示</view>
+    <view class="drawer_content">
+      <view>
+        <label class="font-13 color-9">{{retMsg}}</label>
+      </view>
+    </view>
+    <view class="lineBottom"></view>
+    <view class="btn_ok" bindtap="powerDrawer" data-statu="close">确定</view>
+  </view>
+</view>

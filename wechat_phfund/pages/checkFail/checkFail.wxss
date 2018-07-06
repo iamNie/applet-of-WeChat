@@ -1,0 +1,24 @@
+/* pages/checkFail/checkFail.wxss */
+
+page {
+  background-color: #fff;
+}
+
+.title {
+  height: 200px;
+}
+
+.titleImg {
+  width: 87px;
+  height: 87px;
+  margin-top: 20%;
+}
+
+.login {
+  width: 90%;
+  height: 45px;
+  background-color: #c83217;
+  color: #fff;
+  margin-top: 100px;
+  text-align: center;
+}

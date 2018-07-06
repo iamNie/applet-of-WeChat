@@ -1,0 +1,107 @@
+/* pages/sellAssets/sellAssets.wxss */
+
+.totalMoney {
+  width: 100%;
+  height: 113.5px;
+  background-color: #c83127;
+  text-align: center;
+  color: #fff;
+}
+
+.downImg {
+  width: 15px;
+  height: 11px;
+}
+
+.total {
+  padding-top: 10px;
+}
+
+.money {
+  padding-top: 5px;
+}
+
+.wallet {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #fff;
+}
+
+.btn {
+  width: 90%;
+  height: 42.5px;
+  margin: 20px auto;
+}
+
+.moreFund {
+  width: 100%;
+  height: 42px;
+  text-align: center;
+  background-color: #fff;
+  line-height: 42px;
+}
+
+.margin-5 {
+  display: flex;
+  align-items: center;
+  height: 50px;
+  flex-direction: row;
+  background-color: #fff;
+}
+
+.icon {
+  width: 3px;
+  height: 15px;
+  background-color: #c83127;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+/**
+切换美元和人民币
+*/
+
+.subTab {
+  position: absolute;
+  width: 135px;
+  top: 39px;
+  right: 36%;
+  z-index: 999;
+  display: none;
+  height: 50px;
+  background-color: #c83127;
+  border-radius: 2.5px;
+  border: 1px solid #fff;
+}
+
+.subTab li {
+  font-size: 14px;
+  line-height: 30px;
+  color: #fff;
+  height: 50%;
+  display: block;
+  text-align: left;
+  padding-left: 10px;
+}
+
+.slidown {
+  display: block;
+}
+
+.slidup {
+  display: none;
+}
+
+.centerLine {
+  width: 70%;
+  height: 1px !important;
+  background-color: #fff;
+  margin: 0 auto;
+}
+.ads{
+  width: 100%;
+  height: 127px;
+}

@@ -1,0 +1,47 @@
+/* pages/myAsset/myAsset.wxss */
+
+.totalMoney {
+  width: 100%;
+  height: 76pt;
+  background-color: #c83127;
+  text-align: center;
+  color: #fff;
+  line-height: 30pt;
+}
+
+.total {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+  margin-left: 40%;
+}
+
+.image {
+  width: 20px;
+  height: 12px;
+  margin-left: 5px;
+}
+
+.centerImage {
+  height: 195pt;
+  background-color: #fff;
+  position: relative;
+  background-size: 100% 100%;
+}
+
+.login {
+  width: 162pt;
+  height: 34pt;
+  background-color: #f07100;
+  color: #fff;
+  text-align: center;
+  position: absolute;
+  top: 68pt;
+  left: 20%;
+}
+
+.toA {
+  height: 85pt;
+  background-size: 100% 100%;
+}

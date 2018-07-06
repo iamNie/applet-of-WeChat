@@ -1,0 +1,53 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/fundShop/fundShop",
+    "pages/login/login",
+    "pages/loginOut/loginOut",
+    "pages/fundDetails/fundDetails",
+    "pages/managerMesssage/managerMesssage",
+    "pages/fundSituation/fundSituation",
+    "pages/rateExplain/rateExplain",
+    "pages/profitShare/profitShare",
+    "pages/wekyie/wekyie",
+    "pages/milrev/milrev",
+    "pages/aplusProperty/aplusProperty",
+    "pages/holdDetails/holdDetails",
+    "pages/netWorthList/netWorthList",
+    "pages/yeildList/yeildList",
+    "pages/checkSaleAcct/checkSaleAcct",
+    "pages/checkSaleAcct1/checkSaleAcct1",
+    "pages/checkSaleAcct2/checkSaleAcct2",
+    "pages/checkSuccess/checkSuccess",
+    "pages/checkFail/checkFail",
+    "pages/h5/h5"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle":"black",
+    "enablePullDownRefresh":false
+  },
+  "tabBar": {
+    "borderStyle": "white",
+    "color": "#333333",
+    "selectedColor": "#C83127",
+    "backgroundColor": "#FFFFFF",
+    "list": [
+      {
+        "iconPath": "images/jx1@2x.png",
+        "selectedIconPath": "images/jx2@2x.png",
+        "text": "精选产品",
+        "pagePath": "pages/index/index"
+      },
+      {
+        "iconPath": "images/zc1@2x.png",
+        "selectedIconPath": "images/zc2@3x.png",
+        "text": "我的资产",
+        "pagePath": "pages/aplusProperty/aplusProperty"
+      }
+    ]
+  }
+}

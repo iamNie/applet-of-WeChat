@@ -1,0 +1,143 @@
+<view style="height:100%;width:100%">
+  <view class="lineBlock"></view>
+  <view class="lineBlock"></view>
+  <view class="itemView" bindtap="selectType">
+    <view>
+      <image src="../../images/sfz@2x.png" class="icon"></image>
+    </view>
+    <view class="width-70">
+      <text class="font-15" style="margin-left:18pt">{{loginType}}</text>
+      <dd class="{{openPicker ? 'slidown' : 'slidup'}} subTab">
+        <ul style="width:100%;">
+          <li bindtap="switchLoginType" data-type="">
+            <view>
+              <text class="width-80 {{typeTab == ''  ? 'active' : ''}}">手机</text>
+              <image src="{{typeTab == '' ?'../../images/g1@2x.png':'../../images/g2@2x.png'}}" class="icon1"></image>
+            </view>
+            <view class="line"></view>
+          </li>
+          <li bindtap="switchLoginType" data-type="0">
+            <view>
+              <text class="width-80 {{typeTab =='0' ? 'active' : ''}}">身份证</text>
+              <image src="{{typeTab == '0' ?'../../images/g1@2x.png':'../../images/g2@2x.png'}}" class="icon1"></image>
+            </view>
+            <view class="line"></view>
+          </li>
+          <li bindtap="switchLoginType" data-type="1">
+            <view>
+              <text class="width-80 {{typeTab ==1 ? 'active' : ''}}">中国护照</text>
+              <image src="{{typeTab ==1?'../../images/g1@2x.png':'../../images/g2@2x.png'}}" class="icon1"></image>
+            </view>
+            <view class="line"></view>
+          </li>
+          <li bindtap="switchLoginType" data-type="2">
+            <view>
+              <text class="width-80 {{typeTab ==2 ? 'active' : ''}}">军官证</text>
+              <image src="{{typeTab == 2?'../../images/g1@2x.png':'../../images/g2@2x.png'}}" class="icon1"></image>
+            </view>
+            <view class="line"></view>
+          </li>
+          <li bindtap="switchLoginType" data-type="3">
+            <view>
+              <text class="width-80 {{typeTab == 3 ? 'active' : ''}}">士兵证</text>
+              <image src="{{typeTab == 3 ?'../../images/g1@2x.png':'../../images/g2@2x.png'}}" class="icon1"></image>
+            </view>
+            <view class="line"></view>
+          </li>
+          <li bindtap="switchLoginType" data-type="4">
+            <view>
+              <text class="width-80 {{typeTab ==4 ? 'active' : ''}}">港澳台通行证</text>
+              <image src="{{typeTab == 4 ?'../../images/g1@2x.png':'../../images/g2@2x.png'}}" class="icon1"></image>
+            </view>
+            <view class="line"></view>
+          </li>
+          <li bindtap="switchLoginType" data-type="5">
+            <view>
+              <text class="width-80 {{typeTab ==5 ? 'active' : ''}}">户口本</text>
+              <image src="{{typeTab == 5 ?'../../images/g1@2x.png':'../../images/g2@2x.png'}}" class="icon1"></image>
+            </view>
+            <view class="line"></view>
+          </li>
+          <li bindtap="switchLoginType" data-type="6">
+            <view>
+              <text class="width-80 {{typeTab ==6 ? 'active' : ''}}">外国护照</text>
+              <image src="{{typeTab == 6 ?'../../images/g1@2x.png':'../../images/g2@2x.png'}}" class="icon1"></image>
+            </view>
+            <view class="line"></view>
+          </li>
+          <li bindtap="switchLoginType" data-type="8">
+            <view>
+              <text class="width-80 {{typeTab ==8 ? 'active' : ''}}">文职证</text>
+              <image src="{{typeTab ==8?'../../images/g1@2x.png':'../../images/g2@2x.png'}}" class="icon1"></image>
+            </view>
+            <view class="line"></view>
+          </li>
+          <li bindtap="switchLoginType" data-type="9">
+            <view>
+              <text class="width-80 {{typeTab ==9 ? 'active' : ''}}">警官证</text>
+              <image src="{{typeTab == 9 ?'../../images/g1@2x.png':'../../images/g2@2x.png'}}" class="icon1"></image>
+            </view>
+            <view class="line"></view>
+          </li>
+          <li bindtap="switchLoginType" data-type="A">
+            <view>
+              <text class="width-80 {{typeTab == 'A' ? 'active' : ''}}">台胞证</text>
+              <image src="{{typeTab == 'A' ?'../../images/g1@2x.png':'../../images/g2@2x.png'}}" class="icon1"></image>
+            </view>
+            <view class="line"></view>
+          </li>
+        </ul>
+      </dd>
+    </view>
+    <view class="width-20 text-right">
+      <image src="{{changeImg ? '../../images/sjt@2x.png':'../../images/xjt@2x.png'}}" class="{{changeImg?'image':'image2'}}"></image>
+    </view>
+  </view>
+  <view class="lineBottom"></view>
+  <view class="itemView">
+    <view>
+      <image src="../../images/sjh@2x.png" class="icon"></image>
+    </view>
+    <view class="width-70">
+      <input class="input font-15" style="margin-left:18pt" placeholder="请输入{{loginType}}号码" bindinput='userNameInput' />
+    </view>
+  </view>
+  <view class="lineBottom"></view>
+  <view class="itemView">
+    <view>
+      <image src="../../images/close@2x.png" class="icon" style="height:23px;"></image>
+    </view>
+    <view class="width-70">
+      <input class="input font-15" style="margin-left:18pt" password placeholder="输入密码" bindinput="passWdInput" />
+    </view>
+  </view>
+  <view class="lineBottom"></view>
+  <view class="forgetPwd">
+    <text class="font-12 F07100" bindtap='forgetPwd'>忘记密码？</text>
+  </view>
+  <button class="login font-17" bindtap="login">登录</button>
+  <view class="tip">
+    <view class="tips">
+      <text class="font-12" style="color:#7D7D7D">没有A加账号？可选择</text>
+    </view>
+  </view>
+  <button class="dx_login font-17" bindtap="dxLogin">代销账户登录</button>
+</view>
+<view>
+  <loading wx:if="{{showLoading}}">加载中</loading>
+</view>
+
+
+<view animation="{{animationData}}" class="drawer_box" hidden="{{flag}}">
+  <!--drawer content-->
+  <view class="t_w">
+    <view class="drawer_title">提示</view>
+    <view class="drawer_content">
+      <view>
+        <label class="font-13 color-9">{{retMsg}}</label>
+      </view>
+    </view>
+    <view class="lineBottom"></view>
+    <view class="btn_ok" bindtap="powerDrawer" data-statu="close">确定</view>
+  </view>
+</view>

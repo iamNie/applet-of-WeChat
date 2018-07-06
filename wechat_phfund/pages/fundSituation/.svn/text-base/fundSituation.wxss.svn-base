@@ -1,0 +1,25 @@
+.fundMess{
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  height: 35px;
+  flex-direction: row;
+}
+.tips {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  height: 43.5px;
+  flex-direction: row;
+}
+.icon {
+  width: 3.3pt;
+  height: 11pt;
+  background-color: #E0354D;
+  margin-left: 10px;
+}
+.text-more {
+  width: 90%;
+  align-items: center;
+  margin-left: 10px;
+}

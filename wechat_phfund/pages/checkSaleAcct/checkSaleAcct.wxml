@@ -1,0 +1,59 @@
+<view style="height:100%;width:100%">
+  <view class="title text-center">
+    <image src="../../images/01@2x.png" class="titleImg"></image>
+  </view>
+  <view class="itemView">
+    <view>
+      <image src="../../images/sjh@2x.png" class="icon"></image>
+    </view>
+    <view class="width-70">
+      <input class="input font-15" style="margin-left:18pt" placeholder="请输入身份证号" bindinput='userIdentity' />
+    </view>
+  </view>
+  <view class="lineBottom"></view>
+  <view class="itemView">
+    <view>
+      <image src="../../images/close@2x.png" class="icon" style="height:23px;"></image>
+    </view>
+    <view class="width-60">
+      <input class="input font-15" style="margin-left:18pt" placeholder="输入四位图形验证码" bindinput="inputYzm" />
+    </view>
+    <view class="width-10" bindtap='change'>
+      <image src="{{imgSrc}}" style="width:75px;height:30px;"></image>
+    </view>
+  </view>
+  <view class="lineBottom"></view>
+
+  <button class="login font-17" bindtap="next">下一步</button>
+
+</view>
+<view>
+  <loading wx:if="{{showLoading}}">加载中</loading>
+</view>
+
+<view animation="{{animationData}}" class="drawer_box" hidden="{{flag}}">
+  <!--drawer content-->
+  <view class="t_w">
+    <view class="drawer_title">提示</view>
+    <view class="drawer_content">
+      <view>
+        <label class="font-13 color-9">{{retMsg}}</label>
+      </view>
+    </view>
+    <view class="lineBottom"></view>
+    <view class="btn_ok" bindtap="powerDrawer" data-statu="close">确定</view>
+  </view>
+</view>
+<view animation="{{animationData}}" class="drawer_box" hidden="{{flag1}}">
+  <!--drawer content-->
+  <view class="t_w">
+    <view class="drawer_title">提示</view>
+    <view class="drawer_content">
+      <view>
+        <label class="font-13 color-9">{{retMsg}}</label>
+      </view>
+    </view>
+    <view class="lineBottom"></view>
+    <view class="btn_ok" bindtap="powerDrawer1" data-statu="close">确定</view>
+  </view>
+</view>

@@ -1,0 +1,409 @@
+<view style="height:100%;width:100%;" hidden="{{showZichan}}">
+  <view wx:if="{{showSellAssets}}">
+    <view class="totalMoney">
+      <view class="total">
+        <text class="font-13">{{totaldx}}({{unit}})</text>
+        <image hidden="{{showImg}}" src="../../images/changeDown.png" class="downImg" bindtap='switch'></image>
+        <dd class="{{openPicker ? 'slidown' : 'slidup'}} subTab">
+          <ul>
+            <li class="{{indexTab==156 ? 'active' : ''}}" data-index="156" bindtap="changeType1">人民币代销资产(元)</li>
+            <li class='centerLine'></li>
+            <li class="{{indexTab==840 ? 'active' : ''}}" data-index="840" bindtap="changeType1">美元代销资产(美元)</li>
+          </ul>
+        </dd>
+      </view>
+      <view class="money">
+        <text class="font-35">{{sumamt}}</text>
+      </view>
+    </view>
+    <view class="lineBlock"></view>
+    <view>
+      <view wx:for="{{sellsAsset}}" wx:key="{{index}}">
+        <view>
+          <view class='margin-5'>
+            <icon class="icon"></icon>
+            <text class="font-15 color-3 font-weight">{{item.distributorName}}：{{item.totalPrice}}{{unit}}</text>
+          </view>
+          <view class="lineBottom"></view>
+        </view>
+        <view wx:for="{{item.fundShareList}}" wx:key="{{index}}">
+          <view class="wallet">
+            <view class='width-75' style="padding-left:15px;">
+              <view>
+                <text class="font-13 color-3">{{item.fundName}}</text>
+              </view>
+              <view wx:if="{{item.totalPrice == 0}}">
+                <text class="font-13 color-9">市值：0.00</text>
+              </view>
+              <view wx:else>
+                <text class="font-13 color-9">市值：{{item.totalPrice}}</text>
+              </view>
+            </view>
+            <view class='width-25 text-center'>
+              <view>
+                <text class="font-13 color-9">持有份额</text>
+              </view>
+              <view>
+                <text class="font-13" style="color:#000">{{item.totalShare}}</text>
+              </view>
+            </view>
+          </view>
+          <view class="lineBottom"></view>
+        </view>
+      </view>
+    </view>
+    <view class="moreFund" bindtap='viewFundDetail' hidden="{{showMore}}">
+      <text class="font-12 color-6">查看基金行情>></text>
+    </view>
+    <view class="lineBlock"></view>
+    <view>
+      <image src="../../images/ad@2x.png" class="ads"></image>
+    </view>
+  </view>
+  <view wx:if="{{showRmbAssets}}">
+    <view class="totalMoney">
+      <view class="total">
+        <text class="font-13">{{totalzc}}({{unit}})</text>
+        <image hidden="{{showImg}}" src="../../images/changeDown.png" class="downImg" bindtap='switch'></image>
+        <dd class="{{openPicker ? 'slidown' : 'slidup'}} subTab">
+          <ul>
+            <li class="{{indexTab==156 ? 'active' : ''}}" data-index="156" bindtap="changeType">人民币总资产(元)</li>
+            <li class='centerLine'></li>
+            <li class="{{indexTab==840 ? 'active' : ''}}" data-index="840" bindtap="changeType">美元总资产(美元)</li>
+          </ul>
+        </dd>
+      </view>
+      <view class="money" wx:if="{{sumamt1>=0}}">
+        <text class="font-35">{{sumamt}}</text>
+      </view>
+      <view class="money" wx:else>
+        <text class="font-35">----</text>
+      </view>
+    </view>
+    <view wx:if="{{tranInFound >0}}" style="height:30px;text-align:center;line-height:30px">
+      <text class="font-15">在途资产：<text style="color:#FF8331;">{{tranInFound}}</text>元</text>
+    </view>
+    <view hidden="{{showAplus}}">
+      <view class="center">
+        <view class="width-50">
+          <view>
+            <text class="font-13 font-color">昨日收益(元)</text>
+          </view>
+          <view wx:if="{{yestodayPro>0}}">
+            <text class="font-20 font-red">{{yestodayPro}}</text>
+          </view>
+          <view wx:elif="{{yestodayPro<0}}">
+            <text class="font-20 color-2DA66E">{{yestodayPro}}</text>
+          </view>
+          <view wx:else>
+            <text class="font-20 color-2DA66E" style="color:#000">0.00</text>
+          </view>
+        </view>
+        <view class="line-center"></view>
+        <view class="width-50">
+          <view>
+            <text class="font-13 font-color">累计收益(元)</text>
+          </view>
+          <view wx:if="{{totlam>0}}">
+
+            <text class="font-20 font-red font-weight">{{totlam}}</text>
+          </view>
+          <view wx:elif="{{totlam<0}}">
+            <text class="font-20 color-2DA66E font-weight">{{totlam}}</text>
+          </view>
+          <view wx:else>
+            <text class="font-20 font-red" style="color:#000">0.00</text>
+          </view>
+        </view>
+      </view>
+      <view class="lineBlock"></view>
+      <view>
+        <view class="wallet" data-code="{{personalFundCode}}" bindtap='goToDetails'>
+          <view class='width-50' style="padding-left:15px;">
+            <view class="walletYield">
+              <text class="font-13 color-3">钱包</text>
+              <view class="yield">
+                <text>七日年化：{{wyield}}</text>
+              </view>
+            </view>
+            <view>
+              <text class="font-13 color-9">余额：{{walamt}}</text>
+            </view>
+          </view>
+          <view class='width-25 text-center'>
+            <view>
+              <text class="font-13 color-9">昨日收益</text>
+            </view>
+            <view wx:if="{{walletYesrev>0}}">
+              <text class="font-13 font-red">{{walletYesrev}}</text>
+            </view>
+            <view wx:elif="{{walletYesrev<0}}">
+              <text class="font-13 color-2DA66E">{{walletYesrev}}</text>
+            </view>
+            <view wx:else>
+              <text class="font-13 color-9">0.00</text>
+            </view>
+          </view>
+          <view class='width-25 text-center'>
+            <view>
+              <text class="font-13 color-9">累计收益</text>
+            </view>
+            <view wx:if="{{walletTotalr>0}}">
+              <text class="font-13 font-red">{{walletTotalr}}</text>
+            </view>
+            <view wx:elif="{{walletTotalr<0}}">
+              <text class="font-13 color-2DA66E">{{walletTotalr}}</text>
+            </view>
+            <view wx:else>
+              <text class="font-13 color-9">0.00</text>
+            </view>
+          </view>
+        </view>
+        <view class="lineBottom"></view>
+        <view wx:for="{{fundList}}" wx:key="{{index}}">
+          <view class="wallet" data-code="{{item.fundCode}}" bindtap='goToHoldDetails'>
+            <view class='width-50' style="padding-left:15px;">
+              <view>
+                <text class="font-13 color-3 font-weight">{{item.prodna}}</text>
+              </view>
+              <view>
+                <text class="font-13 color-9">市值：{{item.assertMarketValue}}</text>
+              </view>
+            </view>
+            <view class='width-25 text-center'>
+              <view>
+                <text class="font-13 color-9">昨日收益</text>
+              </view>
+              <view wx:if="{{item.yestodayPro>0}}">
+                <text class="font-13 C42526">+{{item.yestodayPro}}</text>
+              </view>
+              <view wx:elif="{{item.yestodayPro<0}}">
+                <text class="font-13 color-2DA66E">{{item.yestodayPro}}</text>
+              </view>
+              <view wx:else>
+                <text class="font-13 color-9">0.00</text>
+              </view>
+            </view>
+            <view class='width-25 text-center'>
+              <view>
+                <text class="font-13 color-9">累计收益</text>
+              </view>
+              <view wx:if="{{item.totlam>0}}">
+                <text class="font-13 C42526">+{{item.totlam}}</text>
+              </view>
+              <view wx:elif="{{item.totlam<0}}">
+                <text class="font-13 color-2DA66E">{{item.totlam}}</text>
+              </view>
+              <view wx:else>
+                <text class="font-13 color-9">0.00</text>
+              </view>
+            </view>
+          </view>
+          <view class="lineBottom"></view>
+        </view>
+      </view>
+      <view class="btn" bindtap='loginOut' hidden="{{hideOut}}">
+        <button style="background-color:#fff;color:#C83127;">安全退出</button>
+      </view>
+    </view>
+    <view hidden="{{showAll}}">
+      <view class="swiper-tab">
+        <view class="swiper-tab-list {{currentTab==01 ? 'on' : 'color-3'}}" data-current="01" bindtap="swtichAsset">
+          <view class="dividend-50">
+            <text class="font-13" style="line-height:50px;">A加资产({{unit}})</text>
+          </view>
+          <view class="dividend-50">
+            <text class="font-20">{{aplusAsset}}</text>
+          </view>
+        </view>
+        <view class="swiper-tab-list {{currentTab==02 ? 'on' : 'color-3'}}" data-current="02" data-dollar="{{onlyDollar}}" bindtap="swtichAsset">
+          <view class="dividend-50">
+            <text class="font-13" style="line-height:50px;">代销资产({{unit}})</text>
+          </view>
+          <view class="dividend-50">
+            <text class="font-20">{{totalPrice}}</text>
+          </view>
+        </view>
+      </view>
+      <view class="lineBlock"></view>
+      <view wx:if="{{currentTab == '01'}}">
+        <view hidden="{{hidezc}}">
+          <view class="center">
+            <view class="width-50">
+              <view>
+                <text class="font-13 font-color">昨日收益(元)</text>
+              </view>
+              <view wx:if="{{yestodayPro>0}}">
+                <text class="font-20 font-red">{{yestodayPro}}</text>
+              </view>
+              <view wx:elif="{{yestodayPro<0}}">
+                <text class="font-20 color-2DA66E">{{yestodayPro}}</text>
+              </view>
+              <view wx:else>
+                <text class="font-20" style="color:#000">0.00</text>
+              </view>
+            </view>
+            <view class="line-center"></view>
+            <view class="width-50">
+              <view>
+                <text class="font-13 font-color">累计收益(元)</text>
+              </view>
+              <view wx:if="{{totlam>0}}">
+
+                <text class="font-20 font-red">{{totlam}}</text>
+              </view>
+              <view wx:elif="{{totlam<0}}">
+                <text class="font-20 color-2DA66E">{{totlam}}</text>
+              </view>
+              <view wx:else>
+                <text class="font-20" style="color:#000">0.00</text>
+              </view>
+            </view>
+          </view>
+          <view class="lineBottom"></view>
+          <view class="wallet" data-code="{{personalFundCode}}" bindtap='goToDetails'>
+            <view class='width-50' style="padding-left:15px;">
+              <view class="walletYield">
+                <text class="font-13 color-3">钱包</text>
+                <view class="yield">
+                  <text>七日年化：{{wyield}}</text>
+                </view>
+              </view>
+              <view>
+                <text class="font-13 color-9">余额：{{walamt}}</text>
+              </view>
+            </view>
+            <view class='width-25 text-center'>
+              <view>
+                <text class="font-13 color-9">昨日收益</text>
+              </view>
+              <view wx:if="{{walletYesrev>0}}">
+                <text class="font-13 font-red">{{walletYesrev}}</text>
+              </view>
+              <view wx:elif="{{walletYesrev<0}}">
+                <text class="font-13 color-2DA66E">{{walletYesrev}}</text>
+              </view>
+              <view wx:else>
+                <text class="font-13 color-9">0.00</text>
+              </view>
+            </view>
+            <view class='width-25 text-center'>
+              <view>
+                <text class="font-13 color-9">累计收益</text>
+              </view>
+              <view wx:if="{{walletTotalr>0}}">
+                <text class="font-13 font-red">{{walletTotalr}}</text>
+              </view>
+              <view wx:elif="{{walletTotalr<0}}">
+                <text class="font-13 color-2DA66E">{{walletTotalr}}</text>
+              </view>
+              <view wx:else>
+                <text class="font-13 color-9">0.00</text>
+              </view>
+            </view>
+          </view>
+          <view class="lineBottom"></view>
+          <view wx:for="{{fundList}}" wx:key="{{index}}">
+            <view class="wallet" data-code="{{item.fundCode}}" bindtap='goToHoldDetails'>
+              <view class='width-50' style="padding-left:15px;">
+                <view>
+                  <text class="font-13 color-3 ">{{item.prodna}}</text>
+                </view>
+                <view>
+                  <text class="font-13 color-9">市值：{{item.assertMarketValue}}</text>
+                </view>
+              </view>
+              <view class='width-25 text-center'>
+                <view>
+                  <text class="font-13 color-9">昨日收益</text>
+                </view>
+                <view wx:if="{{item.yestodayPro>0}}">
+                  <text class="font-13 C42526">+{{item.yestodayPro}}</text>
+                </view>
+                <view wx:elif="{{item.yestodayPro<0}}">
+                  <text class="font-13 color-2DA66E">{{item.yestodayPro}}</text>
+                </view>
+                <view wx:else>
+                  <text class="font-13 color-9">0.00</text>
+                </view>
+              </view>
+              <view class='width-25 text-center'>
+                <view>
+                  <text class="font-13 color-9">累计收益</text>
+                </view>
+                <view wx:if="{{item.totlam>0}}">
+                  <text class="font-13 C42526">+{{item.totlam}}</text>
+                </view>
+                <view wx:elif="{{item.totlam<0}}">
+                  <text class="font-13 color-2DA66E">{{item.totlam}}</text>
+                </view>
+                <view wx:else>
+                  <text class="font-13 color-9">0.00</text>
+                </view>
+              </view>
+            </view>
+            <view class="lineBottom"></view>
+          </view>
+        </view>
+      </view>
+      <view wx:if="{{currentTab == '01'}}">
+        <view class="btn" bindtap='loginOut' hidden="{{hideOut}}">
+          <button style="background-color:#fff;color:#C83127;">安全退出</button>
+        </view>
+      </view>
+      <view wx:if="{{currentTab == '02'}}">
+        <view wx:for="{{sellsAsset}}" wx:key="{{index}}">
+          <view>
+            <view class='margin-5'>
+              <icon class="icon"></icon>
+              <text class="font-15 color-3 font-weight">{{item.distributorName}}：{{item.totalPrice}}{{unit}}</text>
+            </view>
+            <view class="lineBottom"></view>
+          </view>
+          <view wx:for="{{item.fundShareList}}" wx:key="{{index}}">
+            <view class="wallet">
+              <view class='width-75' style="padding-left:15px;">
+                <view>
+                  <text class="font-13 color-3">{{item.fundName}}</text>
+                </view>
+                <view wx:if="{{item.totalPrice == 0}}">
+                  <text class="font-13 color-9">市值：0.00</text>
+                </view>
+                <view wx:else>
+                  <text class="font-13 color-9">市值：{{item.totalPrice}}</text>
+                </view>
+              </view>
+              <view class='width-25 text-center'>
+                <view>
+                  <text class="font-13 color-9">持有份额</text>
+                </view>
+                <view>
+                  <text class="font-13" style="color:#000">{{item.totalShare}}</text>
+                </view>
+              </view>
+            </view>
+            <view class="lineBottom"></view>
+          </view>
+
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view>
+  <loading wx:if="{{showLoading}}">加载中</loading>
+</view>
+
+<view animation="{{animationData}}" class="drawer_box" hidden="{{flag}}">
+  <!--drawer content-->
+  <view class="t_w">
+    <view class="drawer_title">提示</view>
+    <view class="drawer_content">
+      <view>
+        <label class="font-13 color-9">{{retMsg}}</label>
+      </view>
+    </view>
+    <view class="lineBottom"></view>
+    <view class="btn_ok" bindtap="powerDrawer" data-statu="close">确定</view>
+  </view>
+</view>

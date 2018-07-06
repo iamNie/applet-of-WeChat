@@ -1,0 +1,68 @@
+.manageName {
+  height: 75pt;
+  text-align: center;
+  background-color:#fff;
+
+}
+
+.headImg {
+  width: 39pt;
+  height: 39pt;
+  margin-top:10pt;
+}
+
+.tips {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  height: 45px;
+  flex-direction: row;
+}
+
+.details {
+  padding: 10px;
+  line-height: 16pt;
+  background-color:#fff;
+
+}
+.managerFund{
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  height: 35px;
+  flex-direction: row;
+  background-color:#fff;
+
+}
+.icon {
+  width: 3.3pt;
+  height: 11pt;
+  background-color: #E0354D;
+  margin-left: 10px;
+}
+.text-more {
+  width: 90%;
+  align-items: center;
+  margin-left: 10px;
+}
+.second{
+  background-color:#fff;
+
+}
+.image {
+  width: 20px;
+  height: 20px;
+  margin-left: 10px;
+}
+
+.icon-image {
+  width: 20px;
+  height: 20px;
+}
+
+.icon1 {
+  width: 10px;
+  height: 15px;
+  margin-left: 5pt;
+  float: right;
+}

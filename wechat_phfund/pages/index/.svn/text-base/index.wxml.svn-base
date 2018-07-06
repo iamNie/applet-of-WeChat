@@ -1,0 +1,82 @@
+<view style="height:100%;width:100%;">
+  <view class="userinfo" style="height:{{height}}">
+    <image src="../../images/wx1.png" style="width:100%;height:100%;"></image>
+  </view>
+  <view class="lineBottom"></view>
+  <!-- 万份收益和七日年化 -->
+  <view class="totalMoney">
+    <view class="width-50" bindtap='goMilrev'>
+      <view>
+        <text class="font-13 font-color">万份收益(元)</text>
+      </view>
+      <view>
+        <text class="font-20 font-red font-weight">{{milrev}}</text>
+      </view>
+    </view>
+    <view class="line-center"></view>
+    <view class="width-50" bindtap='goWekyie'>
+      <view>
+        <text class="font-13 font-color">七日年化(%)</text>
+      </view>
+      <view>
+        <text class="font-20 font-red font-weight">{{wekyie}}<text class="font-12 font-red">%</text></text>
+      </view>
+    </view>
+  </view>
+  <view class="lineBlock"></view>
+  <!--精选基金展示展示 -->
+  <view style="background-color:#fff">
+    <view class="">
+      <view class='margin-5'>
+        <icon class="icon"></icon>
+        <text class="font-17 text-more font-weight">精选产品</text>
+      </view>
+      <view class="lineBottom"></view>
+    </view>
+    <view wx:for="{{array}}" wx:key="{{index}}">
+      <view class="second" bindtap='goToDetail' data-code="{{item.fundCode}}">
+        <view class="aboutMoney">
+          <view wx:if="{{item.key_value>0}}">
+            <text class="font-24 C83126">{{item.key_value}}%</text>
+          </view>
+          <view wx:elif="{{item.key_value<0}}">
+            <text class="font-24 color-2DA66E">{{item.key_value}}%</text>
+          </view>
+          <view wx:else>
+            <text class="font-24 color-9">0.00%</text>
+          </view>
+          <view style="margin-top:-5px;">
+            <text class="font-12 color-9">{{item.key_subname}}</text>
+          </view>
+        </view>
+        <view class="fund">
+          <view>
+            <text class="font-15">{{item.key_name}}</text>
+          </view>
+          <view>
+            <text class="font-12 F07100">{{item.key_msg}}</text>
+          </view>
+        </view>
+        <image src="../../images/jt03@2x.png" class="icon1"></image>
+      </view>
+      <view class="lineBottom"></view>
+    </view>
+    <view class="viewMore" bindtap='goToMoreFund'>
+      <text style='width:100%;text-align:center'>查看更多产品>></text>
+    </view>
+     <!-- <button open-type="launchApp" app-parameter="wechat" binderror="launchAppError">打开APP</button>  -->
+     <!-- <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">获取手机号</button> -->
+    <view class="lineBottom"></view>
+  </view>
+</view>
+<view>
+  <loading wx:if="{{showLoading}}">加载中</loading>
+</view>
+
+<view animation="{{animationData}}" class="drawer-box" hidden="{{success}}">
+  <!--drawer content-->
+  <view class="t_w1">
+    <image src="../../images/gou.png" class="icon2"></image>
+    <view class="drawer_title" style="color:#fff">转发成功</view>
+  </view>
+</view>

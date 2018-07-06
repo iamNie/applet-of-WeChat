@@ -1,0 +1,33 @@
+<view style="width:100%;height:100%;">
+  <view class="lineBlock"></view>
+  <view class="manageName">
+    <view>
+      <image src="../../images/Ellipse3@2x.png" class="headImg"></image>
+    </view>
+    <view>
+      <text class="font-17" style="#343434">{{managerMessage.name}}</text>
+    </view>
+  </view>
+  <view class="lineBottom"></view>
+  <view class="details">
+    <text class="font-13 color-9">{{managerMessage.managerIntro}}</text>
+  </view>
+  <view class="lineBlock"></view>
+  <view class="managerFund">
+    <view>
+      <icon class="icon"></icon>
+      <text class="font-17 text-more font-weight">管理的基金</text>
+    </view>
+  </view>
+  <view class="lineBottom"></view>
+  <view class="second" wx:for="{{fundList}}">
+    <view class='tips' bindtap='fundDetail' data-code="{{item.fundCode}}">
+      <text class="font-15 color-3" style="margin-left:10pt;width:88%">{{item.fundName}}</text>
+      <image src="../../images/jt03@2x.png" class="icon1"></image>
+    </view>
+    <view class="lineBottom"></view>
+  </view>
+</view>
+<view>
+  <loading wx:if="{{showLoading}}">加载中</loading>
+</view>

@@ -1,0 +1,103 @@
+.topDetails {
+  width: 100%;
+  height: 120px;
+  background-color: #fff;
+  /* margin-top: 10pt; *//* margin-left: 10pt; */
+}
+
+.totalMoney {
+  width: 100%;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.margin {
+  /* margin-top: 10px; */
+  margin-left: 10pt;
+}
+
+.aboutName {
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  /* margin-bottom: 5pt; *//* display: flex;
+  align-items: center;
+  flex-direction: row; */
+}
+
+.fundTips {
+  height: 21px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  text-align: center;
+  margin-bottom: 10pt;
+}
+
+.fundType {
+  border: 0.5pt solid #888;
+  border-radius: 3pt;
+  width: 70px;
+  line-height: 21px;
+  margin-right: 5pt;
+}
+
+.second {
+  background-color: #fff;
+}
+
+.risk {
+  /* border: 0.5pt solid #f64000; */
+  border-radius: 3pt;
+  width: 47pt;
+  line-height: 21px;
+  margin-right: 5pt;
+}
+
+.risk-1 {
+  border: 0.5pt solid #f64000;
+}
+
+.risk-2 {
+  border: 0.5pt solid #c63126;
+}
+
+.risk-3 {
+  border: 0.5pt solid #3e72f6;
+}
+
+.risk-4 {
+  border: 0.5pt solid #888;
+}
+
+.details {
+  height: 55pt;
+}
+
+.tips {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  height: 45px;
+  flex-direction: row;
+}
+
+.image {
+  width: 20px;
+  height: 20px;
+  margin-left: 15px;
+}
+
+.icon-image {
+  width: 20px;
+  height: 20px;
+}
+
+.icon1 {
+  width: 10px;
+  height: 15px;
+  margin-left: 5pt;
+  float: right;
+}

@@ -1,0 +1,9 @@
+<view style="height:100%;width:100%">
+  <view class="title text-center">
+    <image src="../../images/tg@2x.png" class="titleImg"></image>
+  </view>
+  <view class="text-center">
+      <text class="font-17 color-3">恭喜你验证代销账户成功</text>
+  </view>
+  <button class="login font-17" bindtap="next">查看我的资产</button>
+</view>

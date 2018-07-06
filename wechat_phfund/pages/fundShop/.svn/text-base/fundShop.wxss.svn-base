@@ -1,0 +1,180 @@
+.swiper-tab {
+  width: 100%;
+  height: 50px;
+  border-bottom: 1px solid #f5f5f5;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  /* line-height: 30px; */
+  text-align: center;
+    background-color: #fff;
+
+}
+
+.swiper-tab-list {
+  font-size: 10pt;
+  display: inline-block;
+  width: 16.66%;
+  color: #777;
+  height: 45px;
+  line-height: 45px;
+}
+
+.on {
+  color: #c83127;
+  border-bottom: 3px solid #c83127;
+  border-width: 40%;
+}
+
+.swiper-box {
+  /* display: block; */
+  height: 100%;
+  width: 100%;
+  overflow-y: scroll;
+   background-color: #fff;
+}
+
+/* .swiper-box view {
+  text-align: left;
+} */
+
+/**基金展示样式*/
+
+.fundContent {
+  width: 100%;
+}
+
+.fundTtile {
+  width: 100%;
+  height: 31px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: left;
+}
+
+.fundDetail {
+  width: 100%;
+  height: 53px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: left;
+}
+
+.fundDetail text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.right-view {
+  /* width: 100%; *//* height: 53px; */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+}
+
+.image {
+  width: 10px;
+  height: 8px;
+  margin-left: 4pt;
+}
+
+.subTab {
+  position: absolute;
+  width: 25%;
+  top: 39px;
+  right: 0;
+  z-index: 999;
+  display: none;
+}
+
+.subTab li {
+  font-size: 14px;
+  line-height: 34px;
+  color: #575757;
+  height: 40px;
+  display: block;
+  padding-left: 8px;
+  background-color: #fff;
+  text-align: center;
+}
+
+/*筛选项容器布局*/
+
+.pick-container {
+  /* width: 100%; */
+  height: 300rpx;
+  background-color: lightgoldenrodyellow;
+  position: absolute;
+  z-index: 50;
+  /* top: -228rpx; */
+}
+
+/*筛选项隐藏 显示动画 start*/
+
+/* @keyframes slidown {
+  from {
+    transform: translateY(0%);
+  }
+
+  to {
+    transform: translateY(100%);
+  }
+}   */
+
+.slidown {
+  display: block;
+  /* animation: slidown 0.1s ease-in both; 
+  top:-335rpx;  */
+}
+
+.slidup {
+  display: none;
+  /* animation: slidup 0.2s ease-in both;
+  top:-382rpx;  */
+}
+
+/* 
+  @keyframes slidup {
+  from {
+    transform: translateY(100%);
+  }
+
+  to {
+    transform: translateY(0%);
+  }
+}   */
+
+/*筛选项隐藏 显示动画 end*/
+
+.active {
+  color: #ff8331 !important;
+}
+
+.line {
+  height: 54px;
+  width: 1px;
+  background-color: #f5f5f5;
+}
+
+.line1 {
+  height: 30px;
+  width: 1px;
+  background-color: #f5f5f5;
+}
+
+.button {
+  width: 35pt;
+  height: 18pt;
+  padding-right: 0;
+  padding-left: 0;
+  padding-top: 0;
+  background-color: #c83127;
+  color: #fff;
+  line-height: 18pt;
+  font-size: 9pt;
+}

@@ -1,0 +1,18 @@
+<view style="height:100%;width:100%;">
+  <view class="totalMoney">
+    <view class="total">
+      <text class="font-10">总资产(元)</text>
+      <image src="../../images/kyan@2x.png" class="image"></image>
+    </view>
+    <view>
+      <text class="font-10">----</text>
+    </view>
+  </view>
+  <view class="centerImage" style="background-image: url('../../images/wdlbg@2x.png')">
+    <button class="login font-12" bindtap='gotoLogin'>登录查看资产</button>
+  </view>
+  <view class="lineBlock"></view>
+  <view class="toA" bindtap='downloadApp'>
+    <image src="../../images/ad@2x.png" style="height:85pt;width:100%"></image>
+  </view>
+</view>
